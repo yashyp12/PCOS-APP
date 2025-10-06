@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "91828679269",
+    "project_id": "v-app-blind",
+    "storage_bucket": "v-app-blind.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91828679269:android:672e2fc21a686464c94c8c",
+        "android_client_info": {
+          "package_name": "com.example.pcosdetectionapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX_FrWQ5rhBGWksn9paoDAYR3QuLnVBZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91828679269:android:51641a2789902e11c94c8c",
+        "android_client_info": {
+          "package_name": "com.example.vappblind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX_FrWQ5rhBGWksn9paoDAYR3QuLnVBZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PCOSDetectionApp"
+        tools:targetApi="31">
+        <activity
+            android:name=".healthgoal"
+            android:exported="false" />
+        <activity
+            android:name=".youare"
+            android:exported="false" />
+        <activity
+            android:name=".personlizedpage"
+            android:exported="false" />
+        <activity
+            android:name=".backget"
+            android:exported="false" />
+        <activity
+            android:name=".Getstarted"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Doctorfour"
+            android:exported="false" />
+        <activity
+            android:name=".Doctorthree"
+            android:exported="false" />
+        <activity
+            android:name=".Doctortwo"
+            android:exported="false" />
+        <activity
+            android:name=".Doctorone"
+            android:exported="false" />
+        <activity
+            android:name=".yoga"
+            android:exported="false" />
+        <activity
+            android:name=".tips"
+            android:exported="false" />
+        <activity
+            android:name=".food"
+            android:exported="true" />
+        <activity
+            android:name=".suggest"
+            android:exported="true" />
+        <activity
+            android:name=".detection"
+            android:exported="true" />
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
+    </application>
+
+</manifest>

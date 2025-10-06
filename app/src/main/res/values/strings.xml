@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">PCOS detection app</string>
+    <string name="link">
+    <a href="https://youtu.be/y39PrKY_4JM"> link</a>
+</string>
+
+    <string name="link1">
+    <a href="https://youtu.be/KTxVYk-Bqv4"> Link </a>
+</string>
+
+
+    <string name="link2">
+    <a href="https://youtu.be/hRcvSEtoecg"> Link </a>
+</string>
+
+    <string name="link3">
+    <a href="https://youtu.be/c0-gWMJRaIk">Link </a>
+</string>
+
+
+    <string name="link4">
+    <a href="https://www.youtube.com/watch?v=H5WcAVifbZo">5 Effective Yoga Asanas For PCOD |  </a>
+</string>
+
+
+    <string name="link5">
+    <a href="https://www.youtube.com/watch?v=GTVvhMPSoE8">20 Minute Yoga for PCOD | पीसीओडी के लिए योग </a>
+</string>
+</resources>
