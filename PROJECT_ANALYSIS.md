@@ -82,7 +82,7 @@ This is a **PCOS (Polycystic Ovary Syndrome) Detection Application** designed to
 ### Build System
 - **Gradle Version**: 8.13
 - **Kotlin Version**: 1.9.0
-- **Android Gradle Plugin**: 8.13.0
+- **Android Gradle Plugin**: 8.1.3
 - **Java Version**: 1.8 (source & target compatibility)
 - **Build Script**: Kotlin DSL (.kts files)
 
@@ -613,7 +613,7 @@ dependencies {
 ### Build Configuration Plugins
 ```kotlin
 plugins {
-    id("com.android.application") version "8.13.0"
+    id("com.android.application") version "8.1.3"
     id("org.jetbrains.kotlin.android") version "1.9.0"
     id("com.google.gms.google-services") version "4.4.0"
 }
@@ -946,7 +946,8 @@ Solution 3: Delete build folders
 rm -rf build app/build .gradle
 
 Solution 4: Check Gradle version compatibility
-# Ensure Gradle 8.13 supports AGP 8.13.0
+# Gradle 8.13 is compatible with AGP 8.1.3
+# Ensure proper internet connection for dependency resolution
 ```
 
 **Issue**: Dependency resolution failure
@@ -964,7 +965,7 @@ rm -rf ~/.gradle/caches
 **Issue**: Kotlin compilation error
 ```
 Solution: Ensure Kotlin version compatibility
-Kotlin 1.9.0 is compatible with AGP 8.13.0
+Kotlin 1.9.0 is compatible with AGP 8.1.3
 Update if needed in build.gradle.kts
 ```
 
@@ -1197,11 +1198,11 @@ adb shell pm grant com.example.pcosdetectionapp android.permission.SEND_SMS
 
 #### Gradle Plugin Update:
 ```kotlin
-// Current: 8.13.0
+// Current: 8.1.3
 // Check: https://developer.android.com/studio/releases/gradle-plugin
 
 plugins {
-    id("com.android.application") version "8.14.0" apply false
+    id("com.android.application") version "8.2.0" apply false
 }
 ```
 
@@ -1214,7 +1215,7 @@ id("org.jetbrains.kotlin.android") version "1.9.20" apply false
 ```
 
 **Important**: Check compatibility matrix:
-- AGP 8.13+ requires Kotlin 1.8.20+
+- AGP 8.1+ requires Kotlin 1.8.20+ and Gradle 8.0+
 - Kotlin 2.0 introduces K2 compiler (verify library compatibility)
 
 #### Target SDK Update:
