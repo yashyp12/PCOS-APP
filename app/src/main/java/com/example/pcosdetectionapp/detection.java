@@ -98,28 +98,39 @@ suggest.setOnClickListener(new View.OnClickListener() {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 3) {
-            Bitmap image = (Bitmap) data.getExtras().get("data");
-            int dimension = Math.min(image.getWidth(), image.getHeight());
-            image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
-            imageView.setImageBitmap(image);
+        if (resultCode != RESULT_OK || data == null) {
+            return;
+        }
 
-            image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-            classifyImage(image);
+        if (requestCode == 3) {
+            if (data.getExtras() != null) {
+                Bitmap image = (Bitmap) data.getExtras().get("data");
+                if (image != null) {
+                    int dimension = Math.min(image.getWidth(), image.getHeight());
+                    image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
+                    imageView.setImageBitmap(image);
+
+                    image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
+                    classifyImage(image);
+                }
+            }
         } else {
             Uri dat = data.getData();
-            Bitmap image = null;
-            try {
-                image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), dat);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (dat != null) {
+                Bitmap image = null;
+                try {
+                    image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), dat);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (image != null) {
+                    imageView.setImageBitmap(image);
+
+                    image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
+
+                    classifyImage(image);
+                }
             }
-            imageView.setImageBitmap(image);
-
-            image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-
-                classifyImage(image);
-
         }
     }
 
@@ -171,7 +182,13 @@ suggest.setOnClickListener(new View.OnClickListener() {
             // Releases model resources if no longer used.
             model.close();
         } catch (IOException e) {
-            // TODO Handle the exception
+            // Handle the exception: log error and show user-friendly message
+            e.printStackTrace();
+            result.setText("Error: Unable to classify image. Please try again.");
+        } catch (Exception e) {
+            // Handle any other unexpected exceptions
+            e.printStackTrace();
+            result.setText("Error: An unexpected error occurred.");
         }
 
     }
