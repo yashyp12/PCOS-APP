@@ -12,6 +12,7 @@ class Register : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityRegisterBinding
+    // These are initialized in onCreate before any usage
     private lateinit var databaseReference: DatabaseReference
     private lateinit var database: FirebaseDatabase
 
@@ -46,9 +47,9 @@ class Register : AppCompatActivity() {
             {
                 password.setError("Enter Password ")
                 return@setOnClickListener
-            }else if(number.text.length != 10)
+            }else if(number.text.length != 10 || !number.text.toString().all { it.isDigit() })
             {
-                number.setError("Enter 10 Digit Number")
+                number.setError("Enter valid 10 digit phone number")
                 return@setOnClickListener
             }else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches())
             {
