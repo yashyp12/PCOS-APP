@@ -55,13 +55,13 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener {
                     if(it.isSuccessful)
                     {
-                        Toast.makeText(applicationContext,"successfully Login", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext,"Successfully logged in", Toast.LENGTH_LONG).show()
                         val intent = Intent(applicationContext, detection::class.java)
                         startActivity(intent)
                     }
                     else
                     {
-                        Toast.makeText(applicationContext,"Failed to login", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext,"Failed to login: ${it.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }
         }

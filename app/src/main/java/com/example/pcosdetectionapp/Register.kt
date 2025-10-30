@@ -12,9 +12,8 @@ class Register : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityRegisterBinding
-
-    var databaseReference: DatabaseReference? = null
-    var database: FirebaseDatabase? = null
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var database: FirebaseDatabase
 
 
 
@@ -33,7 +32,7 @@ class Register : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         database = FirebaseDatabase.getInstance()
-        databaseReference = database?.reference!!.child("Register")
+        databaseReference = database.reference.child("Register")
 
         btn.setOnClickListener {
 
@@ -47,7 +46,7 @@ class Register : AppCompatActivity() {
             {
                 password.setError("Enter Password ")
                 return@setOnClickListener
-            }else if(number.text.length>10)
+            }else if(number.text.length != 10)
             {
                 number.setError("Enter 10 Digit Number")
                 return@setOnClickListener
@@ -63,18 +62,17 @@ class Register : AppCompatActivity() {
                     if(it.isSuccessful)
                     {
                         val currentuser = auth.currentUser
-                        val currentUserdb = databaseReference?.child((currentuser?.uid!!))
-                        currentUserdb?.child("name")?.setValue(name.text.toString())
-
-
-                        currentUserdb?.child("number")?.setValue(number.text.toString())
-
-                        Toast.makeText(applicationContext,"Registration Successfull", Toast.LENGTH_LONG).show()
-
+                        val currentUserId = currentuser?.uid
+                        if (currentUserId != null) {
+                            val currentUserdb = databaseReference.child(currentUserId)
+                            currentUserdb.child("name").setValue(name.text.toString())
+                            currentUserdb.child("number").setValue(number.text.toString())
+                            Toast.makeText(applicationContext,"Registration Successful", Toast.LENGTH_LONG).show()
+                        }
                     }
                     else
                     {
-                        Toast.makeText(applicationContext,"failed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext,"Registration failed: ${it.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }
         }
