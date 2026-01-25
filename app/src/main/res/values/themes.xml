@@ -2,7 +2,13 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.PCOSDetectionApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/beige</item>
+        <item name="colorPrimaryVariant">@color/tan</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/brown</item>
+        <item name="colorSecondaryVariant">@color/tan</item>
+        <item name="colorOnSecondary">@color/black</item>
     </style>
 
     <style name="Theme.PCOSDetectionApp" parent="Base.Theme.PCOSDetectionApp" />
